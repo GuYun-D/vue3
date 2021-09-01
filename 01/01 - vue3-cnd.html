@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+  <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.1.0/vue.global.js"></script>
+  <script>
+    // 创建app
+    const app = Vue.createApp({
+      template: "<h2>hello Vue3</h2>"
+    })
+    // 将app挂载到哪？参数是选择器
+    app.mount('#app')
+  </script>
+</body>
+</html>

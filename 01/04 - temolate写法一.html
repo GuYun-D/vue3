@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script type="x-template" id="yun">
+      <div>
+        <h1>{{message}}</h1>
+        <h2>{{counter}}</h2>  
+        <button @click="increament">+1</button>
+        <button @click="decreament">-1</button>
+      </div>
+  </script>
+  <script src="./js/vue3.js"></script>
+  <script>
+    Vue.createApp({
+      template: `#yun`,
+      data() {
+        return {
+          counter: 100,
+          message: "vue3初探，计数器"
+        }
+      },
+
+      methods: {
+        increament() {
+          this.counter++
+        },
+        decreament() {
+          this.counter--
+        }
+      }
+    }).mount("#app")
+  </script>
+</body>
+
+</html>
