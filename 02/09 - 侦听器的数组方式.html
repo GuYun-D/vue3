@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+
+  </div>
+  <template id="myStr">
+    <h1>你好呀</h1>
+    <mark>{{msg}}</mark>
+    <button @click="change">点我</button>
+  </template>
+  <script src="../js/vue3.js"></script>
+  <script>
+    Vue.createApp({
+      template: "#myStr",
+      data() {
+        return {
+          msg: "这是一条信息"
+        }
+      },
+      methods: {
+        change() {
+          this.msg = "我发生了改变"
+        },
+
+        changeMsgTwo(){
+          this.msg = '90'
+          console.log('------------------changeMsgTwo----------------');
+        }
+      },
+
+      watch: {
+        // 数组方式，可以直接调用methods中的函数，用引号引起来
+        msg: [
+          "changeMsgTwo",
+          function(newData, oldData){
+            console.log('------------------侦听器2----------------');
+          }
+        ]
+      },
+
+
+      // 全局写法
+      created(){
+        // 监听器有一个返回值，是一个函数，执行之后就不会监听了
+        // $watch('String:监听的值', function(newData, oldData){}, {/* 配置对象 */})
+        const unWatch = this.$watch('msg', function(newData, oldData){
+          console.log(newData, oldData);
+        }, {
+          deep: true,
+          immedidate: true
+        })
+
+        unWatch()
+      }
+    }).mount("#app")
+  </script>
+</body>
+
+</html>

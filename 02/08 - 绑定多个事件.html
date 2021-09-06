@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div.container {
+      width: 100px;
+      height: 100px;
+      background-color: #ccc;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app"></div>
+  <template id="myApp">
+    <div>{{counter}}</div>
+    <div @click="add1" @mouseMove="add2" class="container">dianwo1</div>
+    <div v-on="{click: add1, mousemove: add2}" class="container">dianwo1</div>
+    <div @="{click: add1, mousemove: add2}" class="container">dianwo1</div>
+  </template>
+  <script src="../js/vue3.js">
+
+  </script>
+  <script>
+    Vue.createApp({
+      template: '#myApp',
+      data() {
+        return {
+          counter: 0
+        }
+      },
+
+      methods: {
+        add1() {
+          this.counter++
+        },
+
+        add2() {
+          this.counter++
+        }
+      },
+
+      computed: {
+
+      }
+
+    }).mount('#app')
+  </script>
+</body>
+
+</html>

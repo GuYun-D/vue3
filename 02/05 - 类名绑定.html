@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .pp{
+      background-color: #f40;
+    }
+
+    .cv{
+      font-size: 20px;
+    }
+
+    .test{
+      color: rgb(121, 248, 2);
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <template id="myApp">
+    <div>
+      <p :class="['pp', 'cv']">p标签</p>
+      <span :class="{'pp': true}">span标签</span>
+      <div :class="{'test': isActive}">losssssss</div>
+      <button @click="change"></button>
+      <br><br><br><br><br><br><br><br><br><br>
+
+      <!-- 数组中支持三元表达式 -->
+      <li :class="['pp', 'test', isActive ? 'cv' : '']">列表</li>
+      <li :class="['pp', 'test', {'cv': isActive}]">数组中照样可以对象语法</li>
+    </div>
+  </template>
+  <script src="../js/vue3.js">
+    
+  </script>
+  <script>
+    Vue.createApp({
+      template: '#myApp',
+      data(){
+        return {
+          isActive: true
+        }
+      },
+
+      methods: {
+        change(){
+          this.isActive = !this.isActive
+        }
+      },
+
+      computed: {
+
+      }
+
+    }).mount('#app')
+  </script>
+</body>
+</html>
