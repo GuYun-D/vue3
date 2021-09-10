@@ -12,3 +12,31 @@
 ```js
 npm i vite -g
 ```
+
+## 原理
+vite搭建了一个服务器，vite1使用的是koa，vite2使用的是Connect
+
+## vite对vue的支持
+- vue3单文件组件：@vitejs/plugin-vue
+- jsx: @vitejs/plugin-vue-jsx
+- vue2： underfin/vite-plugin-vue2
+
+还要下载@vue/compiler-sfc
+
+## vite会对依赖进行预打包
+存在于node_modules/.vite文件夹中
+vite服务停掉，再启动时就不会进行预打包，提高了性能，速度快
+
+## 打包
+- npx vite build
+- 预览打包后生成的文件运行：npx vite preview
+
+## ESBuild
+- 超快的构建速度
+- 支持es6和commonJs模块化
+- 支持es6的tree shaking
+- 支持go js的api
+- 支持ts。jsx语法
+- 支持sourceMap
+- 支持代码压缩
+- 支持扩展其他插件

@@ -10,8 +10,14 @@ import './src/css/index.css'
  */
 import './src/css/title.less'
 
+import mult from './src/ts/mult'
+
+import { createApp } from "vue"
+import App from './src/vue/App.vue'
+
 console.log("hello world");
-
 console.log(add(10, 70));
-
 console.log(_.join(["aaa", "bbb", "cccc"], "-"));
+console.log(mult(10, 20));
+
+createApp(App).mount("#app")
