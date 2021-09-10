@@ -40,3 +40,17 @@ vite服务停掉，再启动时就不会进行预打包，提高了性能，速�
 - 支持sourceMap
 - 支持代码压缩
 - 支持扩展其他插件
+
+使用golang，直接转换成机器码，无需经过字节码；充分利用CPU多核，尽可能让它饱和运行；无第三方包
+
+# vite脚手架
+
+## 安装
+```js
+npm i @vitejs/create-app -g
+```
+
+## 使用脚手架
+```js
+npm init @vitejs/app my-vue-app -- --template vue
+```
