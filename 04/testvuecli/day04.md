@@ -21,5 +21,3 @@ vue create testvuecli
 - vue-cli-service中会使用node执行@vue/cli-service/bin/vue-cli-service.js文件
 - ...
 
-
-# vite
