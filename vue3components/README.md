@@ -115,5 +115,34 @@ npm i mitt
   ```js
   import {defineAsyncComponent} from 'vue'
   const AsyncCategory = defineAsyncComponent(() => import("./asyncCategory.vue"))
-```
+  ```
   - 接受一个对象类型，对异步函数进行配置
+
+## 异步组件和Suspense
+> 实验性组件，后面看官网 
+
+- 内置的全局组件，组件有两个插槽
+  - default：如果default可以显式，那么显示
+  - fallback：如果default无法显示，那么fallback插槽的内容显示
+
+```vue
+<template>
+  <div>
+    <home></home>
+    <Suspense>
+      <template #default>
+        <AsyncCategory></AsyncCategory>
+      </template>
+      <template #fallback>
+        <Loading></Loading>
+      </template>
+    </Suspense>
+  </div>
+</template>
+
+<script>
+import Loading from "./Loading.vue";
+import { defineAsyncComponent } from "vue";
+const AsyncCategory = defineAsyncComponent(() => import("./asyncCategory.vue"));
+// 组件注册部分略
+</script>
