@@ -107,3 +107,13 @@ npm i mitt
   只有名称匹配的组件才会被缓存
 - exclude：取值同上，匹配到的组件不被缓存
 - max: Number|String,最多缓存多少个组件，一旦达到这个值，那么最近一个没有被访问过的组件就会被销毁
+
+## vue3中的异步组件
+对于某些组件通过异步的方式进行加载，也会进行代码分包，defineAsyncComponent函数
+- 参数
+  - 工厂函数；该工厂函数需要返回一个Promise对象
+  ```js
+  import {defineAsyncComponent} from 'vue'
+  const AsyncCategory = defineAsyncComponent(() => import("./asyncCategory.vue"))
+```
+  - 接受一个对象类型，对异步函数进行配置
