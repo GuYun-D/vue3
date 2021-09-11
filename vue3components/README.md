@@ -1,19 +1,8 @@
-# vue3components
+# vue知识补充
+> 在学习vue2的时候漏掉的一些细节(-_-)
 
-## Project setup
-```
-npm install
-```
+## 组件的css作用域
+scoped属性，防止组件之间的样式污染
+- 为元素添加了一个data-v-xxxx的属性，然后通过[data-v-xxxx]选择器进行添加样式
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- 
