@@ -7,6 +7,8 @@
     <MySlotCpn>
       <my-btn>我是一个按钮</my-btn>
     </MySlotCpn>
+
+    <MySlotCpn></MySlotCpn>
   </div>
 </template>
 
