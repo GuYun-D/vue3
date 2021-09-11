@@ -7,7 +7,10 @@
       <template v-slot:center>
         <h2>我是标题</h2>
       </template>
-      <template v-slot:right>
+      <!-- 
+        v-slot:可以简写成#
+       -->
+      <template #right>
         <button>右边按钮</button>
       </template>
 
