@@ -21,7 +21,7 @@
     </template> -->
 
     <!-- 动态组件 is的取值必须是一个注册过的组件名字 -->
-    <component :is="currentTab"></component>
+    <component @pageClick="pageClick" :is="currentTab" name="动态组件" :num="16"> </component>
   </div>
 </template>
 
@@ -47,6 +47,10 @@ export default {
     itemClick(item) {
       this.currentTab = item;
     },
+
+    pageClick(){
+      console.log("page 内部发生了点击");
+    }
   },
 };
 </script>
