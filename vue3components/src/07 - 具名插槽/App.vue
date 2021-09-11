@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NavBar>
+    <NavBar :name="name">
       <template v-slot:left>
         <button>左边按钮</button>
       </template>
@@ -9,6 +9,10 @@
       </template>
       <template v-slot:right>
         <button>右边按钮</button>
+      </template>
+
+      <template v-slot:[name]>
+        <button>云</button>
       </template>
     </NavBar>
   </div>
@@ -19,6 +23,12 @@ import NavBar from "./NavBar";
 export default {
   components: {
     NavBar,
+  },
+
+  data() {
+    return {
+      name: "yun",
+    };
   },
 };
 </script>

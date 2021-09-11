@@ -12,11 +12,19 @@
 
     <!-- 这里虽然没有显式的声明插槽的名字，但是隐式的有一个名字叫做default -->
     <slot></slot>
+
+    <div class="addition">
+      <slot :name="name"></slot>
+    </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    name: String,
+  },
+};
 </script>
 
 <style scoped>
@@ -25,7 +33,8 @@ export default {};
 }
 
 .left,
-.right {
+.right,
+.addition {
   width: 80px;
   background-color: sandybrown;
 }
