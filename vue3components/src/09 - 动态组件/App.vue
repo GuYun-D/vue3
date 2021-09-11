@@ -2,7 +2,7 @@
   <div>
     <button
       :class="{ active: currentTab === item }"
-      v-for="(item, index) in tabs"
+      v-for="item in tabs"
       @click="itemClick(item)"
       :key="item"
     >
@@ -21,7 +21,17 @@
     </template> -->
 
     <!-- 动态组件 is的取值必须是一个注册过的组件名字 -->
-    <component @pageClick="pageClick" :is="currentTab" name="动态组件" :num="16"> </component>
+    <!-- <keep-alive include="about,home"> -->
+    <!-- <keep-alive :include="/about|home/"> -->
+    <keep-alive :include="[about,home]">
+      <component
+        @pageClick="pageClick"
+        :is="currentTab"
+        name="动态组件"
+        :num="16"
+      >
+      </component>
+    </keep-alive>
   </div>
 </template>
 
@@ -48,9 +58,9 @@ export default {
       this.currentTab = item;
     },
 
-    pageClick(){
+    pageClick() {
       console.log("page 内部发生了点击");
-    }
+    },
   },
 };
 </script>

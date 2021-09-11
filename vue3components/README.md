@@ -91,3 +91,19 @@ npm i mitt
 ```
 
 ## 作用域插槽
+
+## keep-alive
+<keep-alive> 包裹动态组件时，会缓存不活动的组件实例，而不是销毁它们。和 <transition> 相似，<keep-alive> 是一个抽象组件：它自身不会渲染一个 DOM 元素，也不会出现在组件的父组件链中。
+
+当组件在 <keep-alive> 内被切换时，它的 mounted 和 unmounted 生命周期钩子不会被调用，取而代之的是 activated 和 deactivated。(这会运用在 <keep-alive> 的直接子节点及其所有子孙节点。)
+
+主要用于保留组件状态或避免重新渲染。
+
+注意，<keep-alive> 是用在其一个直属的子组件被切换的情形。如果你在其中有 v-for 则不会工作。如果有上述的多个条件性的子元素，<keep-alive> 要求同时只有一个子元素被渲染。
+
+**属性** 
+好像得给组件加上name
+- include： String|RegExp|Array
+  只有名称匹配的组件才会被缓存
+- exclude：取值同上，匹配到的组件不被缓存
+- max: Number|String,最多缓存多少个组件，一旦达到这个值，那么最近一个没有被访问过的组件就会被销毁
