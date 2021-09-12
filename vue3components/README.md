@@ -146,3 +146,6 @@ import { defineAsyncComponent } from "vue";
 const AsyncCategory = defineAsyncComponent(() => import("./asyncCategory.vue"));
 // 组件注册部分略
 </script>
+```
+
+## 生命周期
