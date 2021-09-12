@@ -10,16 +10,19 @@
 import NavBar from "./NavBar.vue";
 export default {
   components: {
-    NavBar
+    NavBar,
   },
 
   methods: {
-    getDom(){
+    getDom() {
       console.log(this.$refs.navBar);
       console.log(this.$refs.navBar.message);
-      this.$refs.navBar.say()
-    }
-  }
+      this.$refs.navBar.say();
+
+      // 根dom元素
+      console.log(this.$refs.navBar.$el);
+    },
+  },
 };
 </script>
 
