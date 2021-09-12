@@ -150,7 +150,7 @@ const AsyncCategory = defineAsyncComponent(() => import("./asyncCategory.vue"));
 
 ## 生命周期
 
-## 缓存组件的生命周期
+### 缓存组件的生命周期
 对于缓存组件来说，再次进入时，我是不会执行created(就执行一次)和mounted等生命周期函数的，如果希望监听何时进入了组件，核实离开了组件，可以使用activatec和deactivated这两个生命周期钩子
 
 ```js
@@ -160,4 +160,120 @@ activated(){
 deactivated(){
   console.log("组件失活了");
 }
+```
+
+## 组件的v-model
+
+### 非原生
+```vue
+// App.vue
+<template>
+  <div>
+    <!-- <HyInput v-model="message"></HyInput> -->
+    <HyInput v-model="message"></HyInput>
+    {{message}}
+    <!-- 如果没有指定属性名，组件默认的属性名是modelValue -->
+    <!-- <HyInput :modelValue="message" @update:model-value="message = $event"></HyInput> -->
+  </div>
+</template>
+
+<script>
+import HyInput from "./MyInput.vue";
+export default {
+  components: {
+    HyInput,
+  },
+  data() {
+    return {
+      message: "组件的v-model",
+    };
+  },
+};
+</script>
+```
+
+```vue
+<template>
+  <div>
+    <button @click="btnClick">按钮</button>
+  </div>
+</template>
+
+<script>
+export default {
+  emits: ["update:modelValue"],
+  props: {
+    modelValue: String,
+  },
+
+  methods: {
+    btnClick() {
+      console.log("打印了");
+      this.$emit("update:modelValue", "123456");
+    },
+  },
+};
+```
+
+### 原生
+```vue
+// App不变
+<template>
+  <div>
+    <!-- <button @click="btnClick">按钮</button> -->
+    <input type="text" :value="modelValue" @input="btnClick">
+  </div>
+</template>
+
+<script>
+export default {
+  emits: ["update:modelValue"],
+  props: {
+    modelValue: String,
+  },
+
+  methods: {
+    btnClick(event) {
+      console.log("打印了");
+      this.$emit("update:modelValue", event.target.value );
+    },
+  },
+};
+```
+
+简化操作
+```vue
+<template>
+  <div>
+    <input type="text" v-model="value" />
+  </div>
+</template>
+
+<script>
+export default {
+  emits: ["update:modelValue"],
+  props: {
+    modelValue: String,
+  },
+
+  computed: {
+    value: {
+      get() {
+        return this.modelValue;
+      },
+
+      set(newValue) {
+        this.$emit("update:modelValue", newValue);
+      },
+    },
+  },
+
+  methods: {
+    btnClick(event) {
+      console.log("打印了");
+      this.$emit("update:modelValue", event.target.value);
+    },
+  },
+};
+</script>
 ```
