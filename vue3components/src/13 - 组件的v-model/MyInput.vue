@@ -5,14 +5,16 @@
     <!-- 绑定到props的数据。这是不被允许的 -->
     <!-- <input type="text" v-model="modelValue"> -->
     <input type="text" v-model="value" />
+    <input type="text" v-model="title" />
   </div>
 </template>
 
 <script>
 export default {
-  emits: ["update:modelValue"],
+  emits: ["update:modelValue", "update:title"],
   props: {
     modelValue: String,
+    title: String,
   },
 
   computed: {
@@ -23,6 +25,16 @@ export default {
 
       set(newValue) {
         this.$emit("update:modelValue", newValue);
+      },
+    },
+
+    title: {
+      get() {
+        return this.title;
+      },
+
+      set(title) {
+        this.$emit("update:title", title);
       },
     },
   },
