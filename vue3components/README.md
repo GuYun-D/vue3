@@ -149,3 +149,15 @@ const AsyncCategory = defineAsyncComponent(() => import("./asyncCategory.vue"));
 ```
 
 ## 生命周期
+
+## 缓存组件的生命周期
+对于缓存组件来说，再次进入时，我是不会执行created(就执行一次)和mounted等生命周期函数的，如果希望监听何时进入了组件，核实离开了组件，可以使用activatec和deactivated这两个生命周期钩子
+
+```js
+activated(){
+  console.log("组件活跃了");
+},
+deactivated(){
+  console.log("组件失活了");
+}
+```

@@ -23,7 +23,8 @@
     <!-- 动态组件 is的取值必须是一个注册过的组件名字 -->
     <!-- <keep-alive include="about,home"> -->
     <!-- <keep-alive :include="/about|home/"> -->
-    <keep-alive :include="[about,home]">
+    <!-- <keep-alive :include="[about,home]"> -->
+    <keep-alive>
       <component
         @pageClick="pageClick"
         :is="currentTab"
