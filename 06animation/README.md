@@ -148,7 +148,7 @@ export default {
 </script>
 
 <style scoped>
-/* .yun-enter-active {
+.yun-enter-active {
   animation: bounceInUp 1s ease-in;
 }
 
@@ -161,3 +161,7 @@ export default {
 }
 </style>
 ```
+
+## gasp动画库
+
+## 动画钩子
