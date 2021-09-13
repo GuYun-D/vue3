@@ -1,8 +1,10 @@
 <template>
   <div>
     <button @click="toggle">toggle</button>
-    <transition name="yun">
-      <h2 v-show="isShow">你好，vue3动画</h2>
+    <!-- <transition name="yun" :duration="3000"> -->
+    <transition name="yun" :duration="{enter: 1000, leave: 1000}" mode="out-in">
+      <h2 v-if="isShow">你好，vue3动画</h2>
+      <h2 v-else>你好，前端</h2>
     </transition>
   </div>
 </template>

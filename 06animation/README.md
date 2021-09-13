@@ -71,3 +71,9 @@ export default {
   <h2 v-show="isShow">你好，vue3动画</h2>
 </transition>
 ```
+
+## 当有两个元素之间在进行切换的时候
+```html
+    <transition name="yun" :duration="{enter: 1000, leave: 1000}" mode="out-in">
+    </transition>
+```
