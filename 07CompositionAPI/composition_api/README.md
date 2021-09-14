@@ -48,3 +48,5 @@ setup中没有绑定this
 - 返回值
   - 返回一个对象
   - 如果data和setup中同时定义了数据,取后者
+
+## reactive api
