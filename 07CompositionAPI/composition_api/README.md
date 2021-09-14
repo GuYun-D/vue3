@@ -27,3 +27,24 @@ app.mixin({
 # extend
 类似于Mixin的方式是通过extends属性
 允许声明另外一个组件，类似于Mixins
+
+# Composition API
+
+## options api的缺点
+- 当我们实现某一个功能时，这个功能对应的代码逻辑会被拆分到各个属性中；
+- 当我们组件变得更大、更复杂时，逻辑关注点的列表就会增长，那么同一个功能的逻辑就会被拆分的很分散；
+- 尤其对于那些一开始没有编写这些组件的人来说，这个组件的代码是难以阅读和理解的（阅读组件的其他人）；
+
+## setup
+
+setup中没有绑定this
+
+- 参数：
+  - props: 父组件传递过来的值
+  - context，也称为是SetupConext, 包含三个属性
+    - attrs：所有非prop的attribue
+    - slots：父组件传递过来的插槽
+    - emit：当我们组件内部需要发出事件时会用到emit
+- 返回值
+  - 返回一个对象
+  - 如果data和setup中同时定义了数据,取后者
