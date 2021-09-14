@@ -4,7 +4,10 @@
     <mark>message</mark>
     <p>{{ title }}</p>
     <div>
-      当前计数<span>{{ state.counter }}</span>
+      <p>
+        当前计数<span>{{ state.counter }}</span>
+      </p>
+      <p>{{ counter }}</p>
     </div>
     <button @click="increamen">点击</button>
     <p>{{ info }}</p>
@@ -12,7 +15,7 @@
 </template>
 
 <script>
-import {reactive} from 'vue'
+import { reactive, ref } from "vue";
 export default {
   props: {
     message: {
@@ -33,20 +36,25 @@ export default {
 
     // 这样定义，就是一个很普通的，没有响应式的
     // 如果要响应式的，那就必须使用reactive函数
-    // let counter = 100;
+
+    // 此时counter就变成了一个ref的响应式的引用
+    let counter = ref(100);
+
     const state = reactive({
-      counter: 100
-    })
+      counter: 100,
+    });
 
     // 局部函数
     const increamen = () => {
       state.counter++;
+      counter.value++;
     };
 
     return {
       title: "标题",
       state,
       increamen,
+      counter,
     };
   },
 };

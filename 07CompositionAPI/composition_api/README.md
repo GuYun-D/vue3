@@ -50,3 +50,51 @@ setup中没有绑定this
   - 如果data和setup中同时定义了数据,取后者
 
 ## reactive api
+
+## Ref API
+Reactive API对传入的类型是有限制的，他要求我们必须传入一个对象或者数组类型
+  - 传入基本类型就会报警告
+
+这个时候vue3提供了Ref API,ref会返回一个响应式对象，该对象作为一个响应式的引用维护着她内部的值，这就是ref名称的来源，它内部的值是在ref的value属性中被维护的
+
+```js
+setup(){
+  let counter = ref(100);
+
+  return {
+    counter
+  }
+}
+```
+
+- 使用
+  - 在模板中使用counter时，模板引擎会进行分包，相当于是counter = 100
+  - 在js中不存在分包，counter.value = 100
+
+- ref自动解包
+  这是一个浅层的解包
+
+  **普通对象**
+
+  ```js
+  const info = {
+    counter
+  }
+  ```
+
+  ```html
+  {{info.counter.value}}
+  ```
+
+  **reactive**
+
+  ```js
+  const info = reactive({
+    info
+  })
+  ```
+
+  ```html
+  {{info.counter}}
+  ```
+
