@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import App from './03 - readonly/App.vue'
+import App from './12 - provide和inject/App.vue'
 
 const app = createApp(App)
 
