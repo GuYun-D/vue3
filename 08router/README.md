@@ -78,3 +78,32 @@ History接口是h5新增的，他有六种模式改变url而不刷新页面
   </script>
 </body>
 ```
+
+# router-link
+- to
+- replace: 设计replace属性，会调用router.replace(),而不是router.push(),就是不能回退。布尔值
+  ```html
+  <router-link replace to="/home">首页</router-link>
+  ```
+- active-class：设置激活a元素后用的clss，默认是router-link-active
+- exact-active-class:连接精准激活时，应用于渲染的a的class，默认值是router-link-exact-active
+- tag属性（4删除了）
+
+# 路由懒加载
+```js
+const routes = [
+  {
+    // 重定向
+    paht: '/', redirect: '/home'
+  }, {
+    path: '/home', component: () => import(/* webpackChunkName: 'home-chunk' */"../pages/Home.vue")
+  }, {
+    path: '/about', component: () => import(/* webpackChunkName: 'about-chunk' */"../pages/About.vue")
+  }]
+```
+
+# 路由的其他属性
+- name: 路由独一无二标识
+- meta：自定义数据
+
+# 动态路由基本匹配
