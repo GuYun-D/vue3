@@ -5,13 +5,13 @@
   <router-link to="/home">首页</router-link>
   <br />
   <router-link to="/about">关于</router-link>
-  <br>
+  <br />
   <router-link to="/user/yunyun/id/123">用户</router-link>
 </template>
 
 <script>
 export default {
-  name: "App",
+  name: "App"
 };
 </script>
 

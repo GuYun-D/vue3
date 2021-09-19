@@ -107,3 +107,34 @@ const routes = [
 - meta：自定义数据
 
 # 动态路由基本匹配
+
+# 插槽
+
+- html标签
+```js
+<router-link to="/home/message">
+  <button>首页按钮</button>
+</router-link>
+```
+
+- 组件
+```html
+<router-link to="/home/message">
+  <NavBar :titleN="'日你妈'"></NavBar>
+</router-link>
+```
+
+- custom 自定义
+```html
+<router-link to="/home/message" v-slot="props">
+  <button>{{ props.href }}</button>
+  <p>{{props.route}}</p>
+  <p>{{props.navigate}}</p>
+</router-link>
+```
+这样写，最后渲染的结果就是button和p都是包裹在a里面的，也都是在触发a的作用
+```html
+<router-link to="/home/message" v-slot="props" custom>
+  <button @click="props.navigate">{{ props.href }}</button>
+</router-link>
+```
