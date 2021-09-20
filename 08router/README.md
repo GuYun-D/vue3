@@ -138,3 +138,18 @@ const routes = [
   <button @click="props.navigate">{{ props.href }}</button>
 </router-link>
 ```
+
+- router-view
+  ```html
+  <!-- 
+  Component：拿到当前切换的组件
+  route：路由对象
+ -->
+  <router-view v-slot="props">
+    <transition name="yun">
+      <keep-alive>
+        <component :is="props.Component"></component>
+      </keep-alive>
+    </transition>
+  </router-view>
+  ```
