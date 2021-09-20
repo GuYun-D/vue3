@@ -153,3 +153,44 @@ const routes = [
     </transition>
   </router-view>
   ```
+
+# 动态添加路由
+```js
+// 动态添加路由
+const categoryRoute = {
+  path: "/category",
+  component: import("../components/Category.vue")
+}
+
+
+if (localStorage.getItem("ROLE_KEY") == "fdghugtiyouipljsgdyeq") {
+  // 添加的是一级路由
+  router.addRoute(categoryRoute)
+
+  // 添加二级路由
+  router.addRoute("home", {
+    path: "homechild",
+    component: () => import("../components/HomeChild.vue")
+  })
+}
+```
+
+# 删除路由
+- 添加一个name相同的路由
+- 通过removeRoute方法，传入路由名称
+  ```js
+  router.removeRoute("about")
+  ```
+- 通过addRoute的方法的返回值回调
+  ```JS
+  const res = router.addRoute(categoryRoute)
+
+  res()
+  ```
+
+# 其他方法
+- router.hasRoute() : 检查路由是否存在
+- router.getRoutes():获取一个包含所有路由记录的数组
+
+# 路由导航守卫
+- 全局前置守卫
