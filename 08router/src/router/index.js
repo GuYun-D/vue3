@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
   {
     // 重定向
-    paht: '/', redirect: '/home'
+    paht: '/', redirect: '/vuex'
   }, {
     name: "home",
     path: '/home',
@@ -29,6 +29,16 @@ const routes = [
     // /:mathMatch(.*)*会将路径变成数组：[ "user", "yunyun", "i" ]
     path: "/:mathMatch(.*)", // 不加星：user/yunyun/i
     component: () => import("../pages/404.vue")
+  }, {
+    path: "/vuex", component: () => import("../pages/VuexPage.vue"),
+    children: [
+      {
+        path: "full", component: () => import("../pages/state封装后.vue")
+      },
+      {
+        path: "getters", component: () => import("../pages/store/getters.vue")
+      }
+    ]
   }
 ]
 
@@ -69,16 +79,16 @@ let counter = 0
  * 4.对象。类似于router.push(...)
  */
 
-router.beforeEach((to, from) => {
+router.beforeEach(() => {
   console.log(`发生了第${++counter}次跳转`);
-  console.log(to);
-  console.log(from);
+  // console.log(to);
+  // console.log(from);
 
-  if(to.path.indexOf("/home" !== -1)){
-    return '/about'
-  }
+  // if(to.path.indexOf("/home" !== -1)){
+  //   return '/about'
+  // }
 
-  return false
+  // return false
 })
 
 export default router
