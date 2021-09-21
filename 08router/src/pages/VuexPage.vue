@@ -6,6 +6,8 @@
 
     <router-link to="/vuex/full">封装了</router-link>
     <router-link to="/vuex/getters">getters</router-link>
+    <router-link to="/vuex/mutations">mutatins</router-link>
+    <router-link to="/vuex/actions">actions</router-link>
     <router-view></router-view>
   </div>
 </template>

@@ -37,6 +37,10 @@ const routes = [
       },
       {
         path: "getters", component: () => import("../pages/store/getters.vue")
+      }, {
+        path: "mutations", component: () => import("../pages/store/mutations.vue")
+      }, {
+        path: "actions", component: () => import("../pages/store/actions.vue")
       }
     ]
   }
