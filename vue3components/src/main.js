@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import App from './13 - 组件的v-model/App.vue'
+import App from './14 - nextTick/app.vue'
 
 /**
  * 通过import函数导入的模块，webpack对其打包的时候就会进行分包
